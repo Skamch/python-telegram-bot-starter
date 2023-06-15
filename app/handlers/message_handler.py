@@ -1,7 +1,7 @@
 from aiogram import types
 
-from my_bot.models import User
-from my_bot import utils
+from app.models import User
+from app import utils
 
 
 async def start_handler(message: types.Message):
