@@ -3,4 +3,3 @@
 venv/*
 .vscode/*
 *.pyc
-config.env

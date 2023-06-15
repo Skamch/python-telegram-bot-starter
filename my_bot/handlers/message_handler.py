@@ -1,11 +1,12 @@
-from my_bot import my_bot
 from aiogram import types
 
+from my_bot.models import User
+from my_bot import utils
 
-@my_bot.dp.message_handler(commands=['start'])
+
 async def start_handler(message: types.Message):
-    user_full_name = message.from_user.full_name
-
-    response = f'Hello {user_full_name}'
-
+    # Create a User object using the message.from_user data
+    user = User(message.from_user)
+    response = f'Hello {user.get_full_name()}'
+    await utils.send_message_to_user(user.id, 'Let me think...')
     await message.reply(response)
